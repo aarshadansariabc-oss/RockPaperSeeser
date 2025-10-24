@@ -26,3 +26,6 @@ Scissors =("""
       (____)
 ---.__(___)
 """)
+
+l = [Rock,Paper,Scissors]
+         
