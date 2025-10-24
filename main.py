@@ -1,38 +1,39 @@
 import random
 import Logo
-def lo():
+def lo(Computer_choice,UserChoice):
     print("Your choice : ")
     print(Logo.l[UserChoice])
     print("\nComputer chooses :")
     print(Logo.l[Computer_choice])
 
-def whoWis():
+def whoWis(UserChoice, Computer_choice):
     if UserChoice == Computer_choice:
         print("Match is Draw")
-    elif UserChoice == 0 and Computer_choice ==1:
-        print("Computer Wins")
-    elif UserChoice == 1 and Computer_choice == 2:
-        print("Computer Wins")
-    elif UserChoice == 2 and Computer_choice == 0:
-        print("Computer Wins")
+    elif (UserChoice == 0 and Computer_choice == 2) or \
+         (UserChoice == 1 and Computer_choice == 0) or \
+         (UserChoice == 2 and Computer_choice == 1) :     
+        print("You Win!")
     else:
-        print("You Win !")
+        print("Computer Wins")
          
-UserChoice = int(input("Enter 0 for Rock 1 for Paper and 2 for Seasers : "))
-Computer_choice = random.randint(0,2)
-if UserChoice >=  0 and UserChoice <=2:
-    lo()
-    isCheck = True
-    while isCheck:
-        whoWis()
-        toRun = input("You Want to play again 'Y' Or 'N' : ").lower()
-        if toRun == 'y':
-            UserChoice = int(input("Enter 0 for Rock 1 for Paper and 2 for Seasers : "))
-            Computer_choice = random.randint(0,2)
-            lo()
-        else:
-            isCheck =False
-else:
-    print("Invalid Input")
 
+while True:
+    UserChoice = int(input("Enter 0 Rock 1 Paper 2 Scisser : "))
+
+    if UserChoice < 0 and UserChoice > 2:
+        print("Invalid Input")
+        break
+
+    Computer_choice = random.randint(0,2)
+    lo(Computer_choice,UserChoice)
+    whoWis(Computer_choice,UserChoice)
+
+    play_Again = input("Do You Want to play again 'Y' or 'N' : ").lower()
+
+    if play_Again != 'y':
+        print("Good Bye Have a Good Day")
+        break
+
+
+       
 
