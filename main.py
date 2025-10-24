@@ -9,24 +9,15 @@ def lo():
 def whoWis():
     if UserChoice == Computer_choice:
         print("Match is Draw")
-    if UserChoice == 0:
-        if Computer_choice == 1:
-            print("Computer wins")
-        elif Computer_choice == 2:
-            print("You Wins")
-    elif UserChoice == 1:
-        if Computer_choice == 0:
-            print("You Win")
-        elif Computer_choice == 2:
-            print("Computer wins")
-    elif UserChoice == 2:
-        if Computer_choice == 0:
-            print("Computer wins")
-        else:
-            print("You wins")
+    elif UserChoice == 0 and Computer_choice ==1:
+        print("Computer Wins")
+    elif UserChoice == 1 and Computer_choice == 2:
+        print("Computer Wins")
+    elif UserChoice == 2 and Computer_choice == 0:
+        print("Computer Wins")
     else:
-        print("Invalid Input")
-
+        print("You Win !")
+         
 UserChoice = int(input("Enter 0 for Rock 1 for Paper and 2 for Seasers : "))
 Computer_choice = random.randint(0,2)
 if UserChoice >=  0 and UserChoice <=2:
@@ -39,7 +30,6 @@ if UserChoice >=  0 and UserChoice <=2:
             UserChoice = int(input("Enter 0 for Rock 1 for Paper and 2 for Seasers : "))
             Computer_choice = random.randint(0,2)
             lo()
-            whoWis()
         else:
             isCheck =False
 else:
